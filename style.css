@@ -8,3 +8,20 @@ background-size: 100%;
 .card{
     background-color: lightblue;
 }
+
+.img1{
+    transform: translate(175%, -15%);
+    border-radius: 30%;
+}
+
+.img2{
+    width: 23%;
+    transform: translate(225%, -2%);
+    border-radius: 15%;
+}
+
+.img3{
+    width: 18%;
+    transform: translate(-225%, -2%);
+    border-radius: 15%;
+}
