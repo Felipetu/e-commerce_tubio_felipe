@@ -4,3 +4,7 @@ background-repeat: no-repeat;
 background-position: flex;
 background-size: 100%;
 }
+
+.card{
+    background-color: lightblue;
+}
