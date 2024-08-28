@@ -10,18 +10,19 @@ background-size: 100%;
 }
 
 .img1{
-    transform: translate(175%, -15%);
-    border-radius: 30%;
+    transform: translate(230%, 1%);
+    border-radius: 10%;
+    width: 18%;
 }
 
 .img2{
     width: 23%;
-    transform: translate(225%, -2%);
+    transform: translate(250%, -2%);
     border-radius: 15%;
 }
 
 .img3{
     width: 18%;
-    transform: translate(-225%, -2%);
+    transform: translate(-210%, -2%);
     border-radius: 15%;
 }
