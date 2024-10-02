@@ -5,19 +5,21 @@ function tarjetas(){
   
   h1.innerText = "Productos";
   
-  let array = [];
+  let cards = [];
   
-  /*for (let i = 1; i <= 9; i ++) { array.push(
-    `<div class="card">
-  <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" class="card-img-top" alt="Auto">
-  <div class="card-body">
-    <h5 class="card-title">Card ${i}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="producto.html" class="btn btn-primary"> Ver Mas </a>
-  </div>
-  </div>`
-  );}*/
-  
+  data.map((producto) => 
+    {let cards = `<div class="card">
+    <img src="${producto.image}" class="card-img-top" alt="Auto">
+    <div class="card-body">
+      <h5 class="card-title">${producto.title}</h5>
+      <p class="card-text">${producto.detail}</p>
+      <a href="producto.html" class="btn btn-primary"> Ver Mas </a>
+      <p class = "card-text"> ${producto.price}</p>
+      <p class = "card-text"> ${producto.stock} </p>
+    </div>
+    </div>`
+  })
+  // no aparecen las cards en el html...
   section.innerHTML= array.join().replaceAll(",", ""); //union del array a string, y se eliminan las comas
 }
 
