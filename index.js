@@ -7,7 +7,7 @@ function tarjetas(){
   
   let array = [];
   
-  for (let i = 1; i <= 9; i ++) { array.push(
+  /*for (let i = 1; i <= 9; i ++) { array.push(
     `<div class="card">
   <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" class="card-img-top" alt="Auto">
   <div class="card-body">
@@ -16,7 +16,7 @@ function tarjetas(){
     <a href="producto.html" class="btn btn-primary"> Ver Mas </a>
   </div>
   </div>`
-  );}
+  );}*/
   
   section.innerHTML= array.join().replaceAll(",", ""); //union del array a string, y se eliminan las comas
 }
