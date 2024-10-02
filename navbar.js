@@ -7,3 +7,7 @@ menu += `<li>${category}</li>`; // añadir cada categoria dentro de una etiqueta
 }
 
 menu = `<ul>${menu}</ul>` //encapsular todo dentro de una lista <ul>
+
+const header = document.querySelector('header');
+
+header.innerHTML = menu;

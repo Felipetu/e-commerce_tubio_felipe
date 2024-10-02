@@ -57,7 +57,7 @@
 <h1></h1>
 <section class="container">
 </section>
-<script src="index.js">
+<script src="index.js " src="./navbar.js">
 let categorias = ["vehiculos", "tecnologia", "futurista"]
 
 let menu = "";
@@ -67,6 +67,11 @@ menu += `<li>${category}</li>`;
 }
 
 menu = `<ul>${menu}</ul>`
+
+const header = document.querySelector('header');
+
+header.innerHTML = menu;
+
 </script>
 </body>
 </html>

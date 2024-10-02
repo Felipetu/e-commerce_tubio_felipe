@@ -16,7 +16,7 @@
 
 <h2>¡Pagina funcionando al diez mil millones porciento!</h2>
 
-<script src="./producto.js">
+<script src="./producto.js" src="./navbar.js">
  let categorias = ["vehiculos", "tecnologia", "futurista"]
 
 let menu = "";
@@ -25,7 +25,12 @@ for (let category of categorias){
 menu += `<li>${category}</li>`;
 }
 
-menu = `<ul>${menu}</ul>`  
+menu = `<ul>${menu}</ul>`
+
+const header = document.querySelector('header');
+
+header.innerHTML = menu;
+
 </script>
 </body>
 </html>
