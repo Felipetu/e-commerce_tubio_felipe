@@ -15,5 +15,8 @@ let etiquetas =
 <h2> Descripcion: ${producto.detail}</h2>
 <h3> Precio: ${producto.price} </h3>
 <p> Stock: ${producto.stock} </p>
-${producto.image}
-`
+${producto.image}`
+
+const main = document.querySelector("main")
+
+main.innerHTML = etiquetas
