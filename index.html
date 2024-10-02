@@ -49,7 +49,7 @@
     </div>
   </nav>
 
-  
+
 
 </header>
 
@@ -58,6 +58,15 @@
 <section class="container">
 </section>
 <script src="index.js">
+let categorias = ["vehiculos", "tecnologia", "futurista"]
+
+let menu = "";
+
+for (let category of categorias){
+menu += `<li>${category}</li>`;
+}
+
+menu = `<ul>${menu}</ul>`
 </script>
 </body>
 </html>

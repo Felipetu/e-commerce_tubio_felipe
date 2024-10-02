@@ -7,7 +7,7 @@
     <title>Producto</title>
 </head>
 <header>
-    
+
 </header>
 
 <body>
@@ -17,6 +17,15 @@
 <h2>¡Pagina funcionando al diez mil millones porciento!</h2>
 
 <script src="./producto.js">
+ let categorias = ["vehiculos", "tecnologia", "futurista"]
+
+let menu = "";
+
+for (let category of categorias){
+menu += `<li>${category}</li>`;
+}
+
+menu = `<ul>${menu}</ul>`  
 </script>
 </body>
 </html>
