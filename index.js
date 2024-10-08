@@ -1,30 +1,3 @@
-function tarjetas(){
-  const h1 = document.querySelector("h1");
-
-  const section = document.querySelector("section")
-  
-  h1.innerText = "Productos";
-  
-  let cards = [];
-  
-  data.map((producto) => 
-    {let cards = `<div class="card">
-    <img src="${producto.image}" class="card-img-top" alt="Auto">
-    <div class="card-body">
-      <h5 class="card-title">${producto.title}</h5>
-      <p class="card-text">${producto.detail}</p>
-      <a href="producto.html" class="btn btn-primary"> Ver Mas </a>
-      <p class = "card-text"> ${producto.price}</p>
-      <p class = "card-text"> ${producto.stock} </p>
-    </div>
-    </div>`
-  })
-  // no aparecen las cards en el html...
-  section.innerHTML= array.join().replaceAll(",", ""); //union del array a string, y se eliminan las comas
-}
-
-tarjetas();
-
 let data = [{
   id: 1,
   first_name: "Jodie",
@@ -90,3 +63,28 @@ let data = [{
   ip_address: "179.206.105.51"
 }]
 
+function tarjetas(){
+
+  const h1 = document.querySelector("h1");
+
+  const section = document.querySelector("section")
+  
+  h1.innerText = "Productos";
+  
+ let cards = data.map((producto) => 
+    `<div class="card">
+    <img src="${producto.image}" class="card-img-top" alt="Auto">
+    <div class="card-body">
+      <h5 class="card-title">${producto.title}</h5>
+      <p class="card-text">${producto.detail}</p>
+      <a href="producto.html" class="btn btn-primary"> Ver Mas </a>
+      <p class = "card-text"> ${producto.price}</p>
+      <p class = "card-text"> ${producto.stock} </p>
+    </div>
+    </div>`);
+
+  // Ya aparecen las cards
+  section.innerHTML= cards.join().replaceAll(",", ""); //union del array a string, y se eliminan las comas
+}
+
+tarjetas();
