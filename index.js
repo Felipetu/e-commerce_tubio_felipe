@@ -9,12 +9,14 @@ h1.innerText = "Productos";
  let cards = data.map((product) => `
  <div class="card">
      <img src="${product.image}" height="200px">
-     <h3>${product.title}</h3>
+     <h2>${product.title}</h2>
+      <h5>${product.detail}</h5>
          <div class="cajaprecio">
-             <span class="precio">$${product.price}</span>
+             <span class="precio"> <h5> Precio: $ ${product.price}  </h5> </span>
          </div>
+
          <div class = "cajastock">
-         <span class = "stock">  ${product.stock} </span>  
+         <span class = "stock"> <h6> Stock restante: ${product.stock} </h6> </span>  
          </div>
      <div class="carrito">
          <button><a href=./producto.html?prod=${product.id}><i class='bx bx-info-circle'></i> Ver más </a></button>
