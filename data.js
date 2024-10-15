@@ -36,32 +36,32 @@ const data = [{
     stock: 17
   }, {
     id: 6,
-    title: "Interceptor",
-    detail: "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
-    image: "http://dummyimage.com/229x100.png/cc0000/ffffff",
-    price: 83,
-    stock: 50
+    title: "Satelite Starlink",
+    detail: "¡Conviértete en parte de la revolución espacial con tu propio satélite Starlink! Diseñado para ofrecer conectividad global de alta velocidad, cada satélite es una inversión en el futuro. Aprovecha la tecnología avanzada y disfruta de un acceso confiable a Internet en cualquier rincón del mundo. No te quedes atrás, ¡únete a la red que está transformando la comunicación y haz que tu voz se escuche en el espacio!",
+    image: "https://www.adslzone.net/app/uploads-adslzone.net/2020/05/Satelite.jpg",
+    price: 250_000,
+    stock: 500
   }, {
     id: 7,
-    title: "Trans Sport",
-    detail: "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-    image: "http://dummyimage.com/198x100.png/5fa2dd/ffffff",
-    price: 80,
-    stock: 47
+    title: "Camion electrico",
+    detail: "¡Transforma tu transporte con nuestro camión eléctrico! Eficiente, silencioso y con cero emisiones, es ideal para empresas que buscan modernizar su flota y contribuir al medio ambiente. Disfruta de costos operativos reducidos y un rendimiento impresionante. ¡Únete a la revolución sostenible y haz tu parte por un futuro más limpio!",
+    image: "https://www.clarin.com/2017/12/12/SJJpydTbf_720x0.jpg",
+    price: 8_000_000,
+    stock: 100
   }, {
     id: 8,
-    title:  "3000GT",
-    detail:  "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
-    image: "http://dummyimage.com/193x100.png/ff4444/ffffff",
-    price:  52,
-    stock:  52
+    title:  "Roca espacial aleatoria",
+    detail:  "¡Adquiere un meteoroide y sé parte de la exploración espacial! Esta inversión única no solo ofrece recursos valiosos, sino también la oportunidad de aumentar tu patrimonio. Imagina tener tu propio trozo del cosmos y ser un pionero en la minería espacial. ¡No pierdas la oportunidad de hacer historia y compra hoy mismo!",
+    image: "https://spaceplace.nasa.gov/asteroid-or-meteor/sp/asteroid.png",
+    price:  100_000_000,
+    stock:  1_300_000
   }, {
     id: 9,
-    title:  "LS",
-    detail: "In congue. Etiam justo. Etiam pretium iaculis justo.",
-    image:  "http://dummyimage.com/236x100.png/5fa2dd/ffffff",
-    price:  67,
-    stock:  48
+    title:  "Esfera de Dyson",
+    detail: "¡Lleva el poder de las estrellas a tu hogar con una Esfera de Dyson! Aprovecha una fuente de energía ilimitada y limpia, capaz de revolucionar tu estilo de vida. Con este avance tecnológico, tendrás acceso a la energía del futuro hoy mismo. ¡No te quedes atrás en la carrera por dominar el cosmos!",
+    image:  "https://media.es.wired.com/photos/6644d0b13a01817a00373b90/master/w_1600%2Cc_limit/Esfera%2520de%2520Dyson.jpg",
+    price:  999_999_999_999_999_999_999_999_999_999_999_999_999_999,
+    stock:  1
   }]
 
   export default data;
