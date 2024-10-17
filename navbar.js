@@ -11,4 +11,4 @@ menu = `<ul>${menu}</ul>` //encapsular todo dentro de una lista <ul>
 const header = document.querySelector('header');
 
 header.innerHTML = menu;
-
+const nav = document.querySelector('nav')

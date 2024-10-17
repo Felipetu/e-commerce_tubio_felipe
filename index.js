@@ -28,3 +28,9 @@ const section = document.querySelector("section")
 }
 
 tarjetas();
+
+//Seleccionamos los botones y imputs necesarios
+let SearchButton = document.getElementsByClassName("btn btn-outline-success");
+let input = document.getElementsByClassName("form-control me-2");
+let CleanButton = document.getElementsByClassName("delete");
+
