@@ -64,19 +64,10 @@
 <section class="container">
 </section>
 <script type ="module" src="index.js " src="./navbar.js" src="./producto.js">
-let categorias = ["vehiculos", "tecnologia", "futurista"]
 
-let menu = "";
-
-for (let category of categorias){
-menu += `<li>${category}</li>`;
-}
-
-menu = `<ul>${menu}</ul>`
-
-const header = document.querySelector('header');
-
-header.innerHTML = menu;
+const filterlist = () => {
+  const filtered = data.filter(item => item.name ===  input.value)}
+  // no se... en clase lo chequeo
 
 </script>
 </body>

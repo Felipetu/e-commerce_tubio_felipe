@@ -28,26 +28,3 @@ const section = document.querySelector("section")
 }
 
 tarjetas();
-
-//Seleccionamos los botones y imputs necesarios
-let SearchButton = document.getElementsByClassName("btn btn-outline-success");
-let input = document.getElementsByClassName("form-control me-2");
-let CleanButton = document.getElementsByClassName("delete");
-
-filterButton.addEventListener("click",srch);
-resetButton.addEventListener("click",reset);
-
-const srch = (event) =>{
-    event.preventDefault();
-    let filterdata = data.filter((item) => item.title.toLowerCase().includes(input.value.toLowerCase()));
-    if (filterdata.length != 0) {
-      mapear(filterdata);
-    } else{
-        alert("No encontrado")
-    }}
-
-const reset = (event) =>{
-    event.preventDefault();
-    cards(data);
-    input.value = "";
-  }
