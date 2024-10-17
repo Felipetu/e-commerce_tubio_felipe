@@ -34,3 +34,10 @@ let SearchButton = document.getElementsByClassName("btn btn-outline-success");
 let input = document.getElementsByClassName("form-control me-2");
 let CleanButton = document.getElementsByClassName("delete");
 
+filterButton.addEventListener("click",srch);
+resetButton.addEventListener("click",reset);
+
+const reset = (event) =>{
+    event.preventDefault();
+    input.value = "";
+  }
