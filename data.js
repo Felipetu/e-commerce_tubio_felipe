@@ -1,8 +1,7 @@
-
 const data = [{
     id: 1,
     title: "Tesla CyberTruck 🤑",
-    detail: "Es una camioneta eléctrica con un diseño futurista angular, hecha de acero inoxidable ultrarresistente, con gran capacidad de carga, tracción en las cuatro ruedas, y una autonomía que supera los 800 km en su versión más avanzada.",
+    detail: "Es una camioneta eléctrica con un diseño futurista angular. <br> Hecha de acero inoxidable ultrarresistente, con gran capacidad de carga, tracción en las cuatro ruedas. <br> Con una autonomía que supera los 800 km en su versión más avanzada.",
     image: "https://wallpapers.com/images/hd/tesla-cybertruck-xrlf3fd5z0oywulz.jpg",
     price: 50_000,
     stock: 125_000
@@ -62,6 +61,7 @@ const data = [{
     image:  "https://media.es.wired.com/photos/6644d0b13a01817a00373b90/master/w_1600%2Cc_limit/Esfera%2520de%2520Dyson.jpg",
     price:  999_999_999_999_999_999_999_999_999_999_999_999_999_999,
     stock:  1
-  }]
+  }
+]
 
   export default data;

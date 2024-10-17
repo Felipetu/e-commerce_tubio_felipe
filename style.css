@@ -5,10 +5,6 @@ background-position: flex;
 background-size: 100%;
 }
 
-.card{
-    background-color: lightblue;
-}
-
 .img1{
     transform: translate(230%, 1%);
     border-radius: 10%;
