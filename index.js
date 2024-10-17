@@ -37,7 +37,17 @@ let CleanButton = document.getElementsByClassName("delete");
 filterButton.addEventListener("click",srch);
 resetButton.addEventListener("click",reset);
 
+const srch = (event) =>{
+    event.preventDefault();
+    let filterdata = data.filter((item) => item.title.toLowerCase().includes(input.value.toLowerCase()));
+    if (filterdata.length != 0) {
+      mapear(filterdata);
+    } else{
+        alert("No encontrado")
+    }}
+
 const reset = (event) =>{
     event.preventDefault();
+    cards(data);
     input.value = "";
   }
