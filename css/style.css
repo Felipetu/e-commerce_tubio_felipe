@@ -22,3 +22,22 @@ background-size: 100%;
     transform: translate(-210%, -2%);
     border-radius: 15%;
 }
+
+h2 {
+    max-width: 550px;
+    text-align: center
+}
+
+h5 {
+    max-width: 550px;
+    text-align: center;
+}
+
+h6{
+max-width: 550px;
+text-align: center;
+}
+
+.container{
+    display: flex;
+}
