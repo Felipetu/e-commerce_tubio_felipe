@@ -2,7 +2,10 @@ import data from "./data.js"
 
 
 const button = document.querySelector('.verproductos');
+const searchInput = document.getElementById('search-input');
+
 const section = document.getElementById('123');
+const cardContainer = document.getElementById('card-container');
 
 button.addEventListener('click', () => {
     section.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
@@ -19,7 +22,7 @@ const section = document.querySelector("section")
         ${data.map((product) => `
             <div class="col-md-3">
                 <div class="card" style="background-color: black; width: 25rem;">
-                    <img src="${product.image}" class="card-img-top" height="270px">
+                    <img src="${product.image}" class="card-img-top" height="250px">
                     <div class="card-body">
                         <h2 class="card-title" style="background-color: red">${product.title}</h2>
                         <h5 class="card-text" style="color: lightblue;">${product.detail}</h5>
@@ -40,3 +43,15 @@ const section = document.querySelector("section")
 }
 
 tarjetas();
+
+function redirectToSearch() {
+    const searchInput = document.getElementById('searchInput').value.trim();
+    
+    // Verifica si hay texto ingresado antes de redirigir
+    if (!searchInput =='') {
+        // Redirige a la URL deseada con el parámetro `search`
+        window.location.href = `../html/resultados.html?search=${encodeURIComponent(searchInput)}`;
+    } else {
+        alert("Por favor, ingresa un término de búsqueda.");
+    }
+}

@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Commerce</title>
-  <link rel="stylesheet" href="./css/GoogleFont.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <header>
@@ -39,12 +39,6 @@
               <a class="nav-link" href="./servicio.html" style="color: white;"> 🎧 Soporte Tecnico 🧑‍💻</a>
             </li>
         </ul>
-
-        <form class="d-flex" role="search" action="./resultados.html" method="post" id="search-form">      
-          <input type="search" placeholder="Buscar productos" style="background-color: rgba(255, 255, 255, 0.62);"> 
-          <button class="btn" type="button" onclick="redirectToSearch()" style="background-color: transparent">🔎</button>
-        </form>
-
       </div>
     </div>
   </nav>
@@ -52,35 +46,12 @@
 
 
 <body style="background-color: hsl(251, 88%, 10%);">
-  <div class="video-container">
-    <video loop src="../files/The Mountain.mp4" type = "video/mp4" autoplay muted></video>
-    <div class="overlay-text">
-      <h1 style="color: lightgreen; font-family: 'Poppins', sans-serif;">Patagonia Market</h1>
-      <p style="font-family: 'Poppins', sans-serif;">"Tu mercado tecnologico favorito"</p>
-      <button class="verproductos" style="background-color: darkblue; color: aliceblue; font-family: 'Poppins', sans-serif; border-radius: 30px;">Ver productos</button>
-    </div>
-  </div>
-  <br>
 
 <section id="123" class="container-fluid">
   <div class="row" id="card-container">
     <!-- Las tarjetas se generan aca -->
   </div>
 </section>
-
-<script type ="module" src="../js/index.js">
-
-const button = document.querySelector('.verproductos');
-const section = document.getElementById('123');
-
-button.addEventListener('click', () => {
-    section.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
-  });
-
-</script>
+<script type="module" src="../js/resultado.js"></script>
 </body>
-<footer>
-  
-</footer>
-
 </html>
