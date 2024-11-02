@@ -41,3 +41,41 @@ text-align: center;
 .container{
     display: flex;
 }
+
+.video-container {
+    position: relative;   /* Necesario para posicionar el texto sobre el video */
+    display: flex;
+    height: 113vh;       /* Ajusta la altura según sea necesario */
+    overflow: hidden;    /* Oculta cualquier contenido que se desborde */
+  }
+  
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+.navbar{
+  position: fixed;      /* Fija la navbar en la parte superior de la página */
+  width: 100%;         
+  padding: 15px;
+  z-index: 10;
+  color: transparent;
+  background-color: transparent !important; /* Hace que el fondo sea transparente */
+  border: none; /* Quita cualquier borde que pudiera tener */
+}
+
+.overlay-text {
+    position: absolute;   /* Posiciona el texto sobre el video */
+    top: 40%;             /* Centra verticalmente */
+    left: 50%;            /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición para centrar exactamente */
+    color: white;         /* Cambia el color del texto como desees */
+    text-align: center;   /* Centra el texto */
+    z-index: 10;          /* Asegura que el texto esté por encima del video */
+    padding: 20px;        /* Espaciado interno */
+    border-radius: 10px;  /* Esquinas redondeadas (opcional) */
+  }
+
+  .form-control::placeholder {
+    color: white; /* Cambia el color del placeholder a blanco */
+  }
