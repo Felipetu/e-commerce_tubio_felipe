@@ -32,20 +32,15 @@
           </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./descubre.html" style="color: white;"> 💸 Descubre 🤯 </a>
-            </li>
-
-            <li class="nav-item">
               <a class="nav-link" href="./promos.html" style="color: white;"> 💯🔥 Promos 🤑 </a>
             </li>
 
             <li class="nav-item">
               <a class="nav-link" href="./servicio.html" style="color: white;"> 🎧 Soporte Tecnico 🧑‍💻</a>
             </li>
-
         </ul>
 
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search">      
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" style="background-color: rgba(176, 173, 230, 0);"> 
           <button class="btn" type="submit" style="background-color: transparent">🔎</button>
           <button style="background-color: transparent; color: red; font: bold;">X</button>
@@ -56,22 +51,33 @@
   </nav>
 </header>
 
+
 <body style="background-color: hsl(251, 88%, 10%);">
   <div class="video-container">
-    <video src="../files/The Mountain.mp4" type = "video/mp4" autoplay muted loop></video>
+    <video loop src="../files/The Mountain.mp4" type = "video/mp4" autoplay muted></video>
     <div class="overlay-text">
       <h1 style="color: lightgreen; font-family: 'Poppins', sans-serif;">Patagonia Market</h1>
       <p style="font-family: 'Poppins', sans-serif;">"Tu mercado tecnologico favorito"</p>
+      <button class="verproductos" style="background-color: darkblue; color: aliceblue; font-family: 'Poppins', sans-serif; border-radius: 30px;">Ver productos</button>
     </div>
   </div>
-<section class="container-fluid">
+  <br>
+
+<section id="123" class="container-fluid">
+  <div class="row" id="card-container">
+    <!-- Las tarjetas se generan aca -->
+  </div>
 </section>
 
-<script type ="module" src="../js/index.js" src="../js/navbar.js" src="../js/producto.js">
+<script type ="module" src="../js/index.js">
 
-const filterlist = () => {
-  const filtered = data.filter(item => item.name ===  input.value)}
-  // no se... en clase lo chequeo
+const button = document.querySelector('.verproductos');
+const section = document.getElementById('123');
+
+button.addEventListener('click', () => {
+    section.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+  });
+
 </script>
 
 </body>
