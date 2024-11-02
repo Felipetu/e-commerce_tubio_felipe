@@ -2,26 +2,35 @@ import data from './data.js';
 
 // Captura el parámetro de la URL
 const urlParams = new URLSearchParams(window.location.search);
-const searchproduct = urlParams.get('search'); // Obtiene el valor de 'prod'
+const searchproduct = urlParams.get('search'); // Obtiene el valor de 'search'
+console.log("Buscando:", searchproduct);
 
-console.log("El resultado es " + searchproduct);
+// Imprimir títulos de todos los productos para verificar coincidencias
+console.log("Lista de productos:");
+data.forEach((product) => console.log(product.title));
 
-// Filtrar el producto por su ID
-const product = data.find(product => product.title.toLowerCase == searchproduct.toLowerCase);
+// Filtrar productos que contengan el término de búsqueda en su título
+const filteredProducts = data.filter((product) => 
+  product.title.toLowerCase().includes(searchproduct.toLowerCase())
+);
 
-if (product) {
-  console.log(product.title);
+if (filteredProducts.length > 0) {
+  // Usamos el primer producto que coincide
+  const product = filteredProducts[0];
+  console.log("Producto encontrado:", product.title);
 
+  // Función para generar la tarjeta del producto
   function tarjetas(product) {
     const section = document.querySelector("section");
     
+    // Crear la tarjeta de producto en HTML
     let card = `
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <div class="d-flex justify-content-center"> <!-- Clase para centrar -->
           <div class="card" style="background-color: black; width: 80%;">
               <div class="row no-gutters"> <!-- Eliminar márgenes entre columnas -->
@@ -46,10 +55,15 @@ if (product) {
           </div>
       </div>`;
     
-    section.innerHTML = card; // Mostrar solo la tarjeta del producto encontrado
+    // Insertar la tarjeta en el HTML
+    section.innerHTML = card;
   }
   
-  tarjetas(product); // Llamar a la función con el producto encontrado
+  // Llamar a la función para mostrar la tarjeta del producto
+  tarjetas(product);
 } else {
+  // Mostrar mensaje si no se encuentra el producto
   console.log("Producto no encontrado.");
+  const section = document.querySelector("section");
+  alert("No se encontro el producto")
 }
