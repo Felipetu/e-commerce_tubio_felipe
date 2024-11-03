@@ -1,0 +1,103 @@
+/* Estilos generales */
+
+
+.container {
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Espaciado alrededor del contenedor */
+}
+
+.container h1 {
+    color: #333; /* Color del título */
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+}
+
+.nav-link {
+    color: white !important; /* Asegura que los enlaces sean blancos */
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo del menú desplegable */
+}
+
+/* Estilos de las tarjetas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaciado entre tarjetas */
+}
+
+.card {
+    background-color: black; /* Fondo de las tarjetas */
+    width: 25rem; /* Ancho fijo */
+    border-radius: 8px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    width: 100%; /* Imagen se ajusta al ancho de la tarjeta */
+    height: 250px; /* Altura fija */
+    object-fit: cover; /* Mantener la proporción */
+}
+
+.card-body {
+    padding: 15px; /* Espaciado interno del cuerpo de la tarjeta */
+}
+
+.card-title {
+    background-color: red; /* Fondo rojo para el título de la tarjeta */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1.2em; /* Tamaño de fuente */
+}
+
+.card-text {
+    color: lightblue; /* Color del texto de la tarjeta */
+}
+
+/* Estilos del botón */
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    border: none;
+    padding: 10px 20px; /* Espaciado interno del botón */
+    color: white; /* Color del texto del botón */
+    text-decoration: none;
+    font-size: 1em; /* Tamaño de fuente */
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Estilos para el panel de categorías */
+.panel {
+    display: none; /* Ocultar el panel de categorías por defecto */
+    position: absolute; /* Asegura que se expanda sin mover otros elementos */
+    top: 100%; /* Coloca el panel justo debajo del botón */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.accordion {
+    font-weight: bold; /* Hacer el texto del acordeón más fuerte */
+    background-color: transparent; /* Fondo transparente */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
+
+.accordion:hover {
+    background-color: #555; /* Cambiar fondo al pasar el mouse */
+}
+
+/* Mostrar el panel al pasar el mouse */
+.accordion:hover + .panel {
+    display: block; /* Mostrar el panel al pasar el mouse */
+}

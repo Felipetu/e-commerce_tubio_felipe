@@ -5,7 +5,7 @@ const data = [{
   image: "https://wallpapers.com/images/hd/tesla-cybertruck-xrlf3fd5z0oywulz.jpg",
   price: 50_000,
   stock: 125_000,
-  category: "vehículos"
+  category: "vehiculos"
 }, {
   id: 2,
   title: "F-35B Lightning II 😈",
@@ -53,7 +53,7 @@ const data = [{
   image: "https://www.clarin.com/2017/12/12/SJJpydTbf_720x0.jpg",
   price: 8_000_000,
   stock: 100,
-  category: "vehículos"
+  category: "vehiculos"
 }, {
   id: 8,
   title: "Roca espacial aleatoria",

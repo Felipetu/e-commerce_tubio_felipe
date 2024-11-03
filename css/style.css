@@ -63,3 +63,27 @@ text-align: center;
 .product-card.highlight {
     box-shadow: 0 0 20px yellow, 0 0 30px orange, 0 0 40px red;
 }
+
+.accordion.active, .accordion:hover {
+  background-color: #555;
+}
+
+.panel {
+  padding: 10px 18px;
+  display: none;
+  background-color: #333;
+  color: white;
+}
+
+.accordion {
+  font-weight: bold;
+}
+
+.panel {
+  position: absolute; /* Asegura que se expanda sin mover otros elementos */
+  top: 100%; /* Coloca el panel justo debajo del botón */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+  padding: 10px;
+  border-radius: 20px;
+  z-index: 10;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/category.css">
+  <title>Categoría</title>
+
+
+</head>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  
+      <div class="container-fluid" style="background-color: transparent;">
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+            <li class="nav-item" >
+              <a class="nav-link active" aria-current="page" href="index.html" style="color: white;">Inicio 🏠</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="./trending.html" style="color: white;">🔥Trending 📈</a>
+            </li>
+  
+            <li class="nav-item">
+                <a class="nav-link" href="./carrito.html" style="color: white;">🛍️ Carrito 🛒</a>
+            </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="./promos.html" style="color: white;"> 💯🔥 Promos 🤑 </a>
+              </li>
+  
+              <li class="nav-item">
+                <a class="nav-link" href="./servicio.html" style="color: white;"> 🎧 Soporte Tecnico 🧑‍💻</a>
+              </li>
+  
+              <li class="nav-item" style="position: relative;">
+                <button class="accordion" style="background-color: transparent; color: white; border: none; cursor: pointer; padding: 10px;">
+                  📦Categorías💾
+                </button>
+                <div class="panel" style="position: absolute; background-color: rgba(0, 0, 0, 0.8); padding: 10px; border-radius: 5px; z-index: 10;">
+                  <a href="category.html?categoria=vehiculos" style="color: white; text-decoration: none;">
+                    Vehículos 🚗
+                  </a>
+                  <br>
+                  <a href="category.html?categoria=militar" style="color: white; text-decoration: none;">
+                    Militar 💂‍♂️
+                  </a>
+                  <br>
+                  <a href="category.html?categoria=espacial" style="color: white; text-decoration: none;">
+                    Espacial 🚀
+                  </a>
+                  <br>
+                  <a href="category.html?categoria=armamento" style="color: white; text-decoration: none;">
+                    Armamento ⚔️
+                  </a>
+                  <br>
+                  <a href="category.html?categoria=tecnologia" style="color: white; text-decoration: none;">
+                    Tecnología 💻
+                  </a>
+                </div>
+              </li>   
+          </ul>
+  
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<body style="background-color: rgb(0, 3, 79);">
+  <div class="container" style="background-color: darkblue;">
+    <h1 style="color: aliceblue;">Productos de la categoría seleccionada</h1>
+    <section id="contenido"></section>
+  </div>
+
+  <script type="module" src="../js/category.js"></script>
+</body>
+</html>

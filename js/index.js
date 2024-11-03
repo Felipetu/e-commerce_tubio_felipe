@@ -27,7 +27,8 @@ button.addEventListener('click', () => {
                       <h5>Precio: $ ${product.price}</h5>
                   </div>
                   <div style="color: lightblue">
-                      <h6>Stock restante: ${product.stock}</h6>  
+                      <h6>Stock restante: ${product.stock}</h6>
+                      <h6> Categoria: ${product.category} </h6>      
                   </div>
                   <div class="text-center">
                       <a href="./producto.html?prod=${product.id}" class="btn btn-primary">Ver más</a>
@@ -54,3 +55,19 @@ function redirectToSearch() {
         alert("Por favor, ingresa un término de búsqueda.");
     }
 }
+
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(accordion => {
+  accordion.addEventListener("click", function() {
+    this.classList.toggle("active");
+
+    const panel = this.nextElementSibling;
+
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+});
