@@ -71,3 +71,19 @@ accordions.forEach(accordion => {
     }
   });
 });
+
+// Verificar si el usuario está logueado
+const authLink = document.getElementById('auth-link');
+const loggedInEmail = localStorage.getItem("email"); // Obtener el email del localStorage
+
+if (loggedInEmail) {
+    authLink.textContent = "Cerrar sesión"; // Cambiar texto a "Cerrar sesión"
+    authLink.href = "#"; // Cambiar el enlace a un valor vacío o un handler
+    authLink.addEventListener("click", () => {
+        localStorage.removeItem("email"); // Cerrar sesión eliminando el email del localStorage
+        location.reload(); // Recargar la página para reflejar el cambio
+    });
+} else {
+    authLink.textContent = "Iniciar sesión"; // Mantener texto como "Iniciar sesión"
+    authLink.href = "login.html"; // Mantener el enlace a la página de login
+}

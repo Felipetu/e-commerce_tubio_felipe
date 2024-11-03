@@ -5,3 +5,21 @@
     height: 100vh; /* Ajusta esto según sea necesario */
   }
   
+  .card {
+    transition: transform 0.2s; /* Efecto de hover */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Color de fondo para el botón de compra */
+    border: none; /* Sin borde */
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Color de fondo para los botones de contador */
+    border: none; /* Sin borde */
+  }
+  

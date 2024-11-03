@@ -1,0 +1,27 @@
+body {
+    display: grid;
+    background-image: url('https://s1.1zoom.me/big3/158/Sky_Mountains_Argentina_Mount_Fitz_Roy_Patagonia_576651_3000x2000.jpg');
+    place-items: center;
+    background-position: center;
+    background-size: 100% auto;
+    height: 100vh;
+    width: 200vh;
+    background-repeat: no-repeat;
+  }
+  
+  .form-label {
+    color: aquamarine;
+    font-weight: bold;
+  }
+
+  #formLoginMessage {
+    color: red; /* Para que el mensaje de error sea visible */
+  }
+
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+    padding: 20px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    max-width: 400px; /* Ancho máximo */
+    margin: 100px auto; /* Centrado vertical y horizontal */
+}
