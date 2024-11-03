@@ -41,7 +41,7 @@ if (product) {
                                   ${isLoggedIn ? "Comprar" : "Iniciar sesión para comprar"}
                               </button>
                               ${isLoggedIn ? `<div class="counter mt-3" style="color: lightblue;">
-                                  <h6>Contador: <span id="product-counter">0</span></h6>
+                                  <h6>Contador: <span id="product-counter">1</span></h6> <!-- Iniciar en 1 -->
                                   <div>
                                       <button class="btn btn-secondary" onclick="decrementCounter()" style="width: 80px;">-</button>
                                       <button class="btn btn-secondary" onclick="incrementCounter()" style="width: 80px;">+</button>
@@ -60,14 +60,23 @@ if (product) {
   // Función para incrementar el contador
   window.incrementCounter = function() {
     const counter = document.getElementById('product-counter');
-    counter.innerText = parseInt(counter.innerText) + 1; // Incrementar el contador
+    const currentQuantity = parseInt(counter.innerText);
+    
+    // Verificar si se puede incrementar sin exceder el stock
+    if (currentQuantity < product.stock) {
+      counter.innerText = currentQuantity + 1; // Incrementar el contador
+    } else {
+      alert("No puedes comprar más de lo que hay en stock."); // Mensaje de advertencia
+    }
   }
 
   // Función para decrementar el contador
   window.decrementCounter = function() {
     const counter = document.getElementById('product-counter');
-    if (parseInt(counter.innerText) > 0) { // No permitir que el contador sea menor que 0
-      counter.innerText = parseInt(counter.innerText) - 1; // Decrementar el contador
+    const currentQuantity = parseInt(counter.innerText);
+    
+    if (currentQuantity > 1) { // No permitir que el contador sea menor que 1
+      counter.innerText = currentQuantity - 1; // Decrementar el contador
     }
   }
 
