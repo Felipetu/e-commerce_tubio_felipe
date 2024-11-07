@@ -20,33 +20,34 @@ if (product) {
     
     let card = `
     <br><br><br><br><br><br>
-      <div class="d-flex justify-content-center"> <!-- Clase para centrar -->
-          <div class="card" style="background-color: black; width: 80%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);">
-              <div class="row no-gutters"> <!-- Eliminar márgenes entre columnas -->
-                  <div class="col-md-6"> <!-- Columna para la imagen -->
-                      <img src="${product.image}" class="card-img" alt="${product.title}" height="100%" style="object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"> <!-- Ajusta la imagen -->
+      <div class="d-flex justify-content-center">
+          <div class="card" style="background-color: #333; width: 80%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); color: #fff;">
+              <div class="row no-gutters">
+                  <div class="col-md-6">
+                      <img src="${product.image}" class="card-img" alt="${product.title}" height="100%" style="object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
                   </div>
-                  <div class="col-md-6"> <!-- Columna para el texto -->
+                  <div class="col-md-6">
                       <div class="card-body">
-                          <h2 class="card-title" style="background-color: red; border-radius: 10px; padding: 10px;">${product.title}</h2>
-                          <h5 class="card-text" style="color: lightblue;">${product.detail}</h5>
-                          <div style="color: yellow">
+                          <h2 class="card-title text-center" style="background-color: #c0392b; border-radius: 10px; padding: 10px;">${product.title}</h2>
+                          <h5 class="card-text text-center" style="color: #5dade2;">${product.detail}</h5>
+                          <div class="text-center" style="color: #f7dc6f;">
                               <h5>Precio: $ ${product.price}</h5>
                           </div>
-                          <div style="color: lightblue">
+                          <div class="text-center" style="color: #76d7c4;">
                               <h6>Stock restante: ${product.stock}</h6>  
                           </div>
-                          <div class="text-center mt-3">
-                              <button class="btn btn-primary" style="width: 200px;">
-                                  ${isLoggedIn ? "Comprar" : "Iniciar sesión para comprar"}
-                              </button>
-                              ${isLoggedIn ? `<div class="counter mt-3" style="color: lightblue;">
-                                  <h6>Contador: <span id="product-counter">1</span></h6> <!-- Iniciar en 1 -->
-                                  <div>
-                                      <button class="btn btn-secondary" onclick="decrementCounter()" style="width: 80px;">-</button>
-                                      <button class="btn btn-secondary" onclick="incrementCounter()" style="width: 80px;">+</button>
+                          <div class="text-center mt-4">
+                              ${isLoggedIn ? `
+                              <div class="counter mt-3">
+                                  <div class="input-group justify-content-center" style="gap: 15px;">
+                                      <button class="btn btn-danger" type="button" onclick="decrementCounter()" style="width: 50px; font-size: 1.5rem;">-</button>
+                                      <span id="product-counter" style="font-size: 1.5rem; padding: 0 20px;">1</span>
+                                      <button class="btn btn-success" type="button" onclick="incrementCounter()" style="width: 50px; font-size: 1.5rem;">+</button>
                                   </div>
-                              </div>` : ""}
+                              </div>
+                              <button class="btn btn-primary mt-4" style="width: 60%; padding: 12px; font-size: 1.2rem;">
+                                  ${isLoggedIn ? "Comprar" : "Iniciar sesión para comprar"}
+                              </button>` : ""}
                           </div>
                       </div>
                   </div>
@@ -54,7 +55,7 @@ if (product) {
           </div>
       </div>`;
     
-    section.innerHTML = card; // Mostrar solo la tarjeta del producto encontrado
+    section.innerHTML = card;
   }
 
   // Función para incrementar el contador
@@ -62,11 +63,10 @@ if (product) {
     const counter = document.getElementById('product-counter');
     const currentQuantity = parseInt(counter.innerText);
     
-    // Verificar si se puede incrementar sin exceder el stock
     if (currentQuantity < product.stock) {
-      counter.innerText = currentQuantity + 1; // Incrementar el contador
+      counter.innerText = currentQuantity + 1;
     } else {
-      alert("No puedes comprar más de lo que hay en stock."); // Mensaje de advertencia
+      alert("No puedes comprar más de lo que hay en stock.");
     }
   }
 
@@ -75,8 +75,8 @@ if (product) {
     const counter = document.getElementById('product-counter');
     const currentQuantity = parseInt(counter.innerText);
     
-    if (currentQuantity > 1) { // No permitir que el contador sea menor que 1
-      counter.innerText = currentQuantity - 1; // Decrementar el contador
+    if (currentQuantity > 1) {
+      counter.innerText = currentQuantity - 1;
     }
   }
 
@@ -87,16 +87,16 @@ if (product) {
 
 // Verificar si el usuario está logueado
 const authLink = document.getElementById('auth-link');
-const loggedInEmail = localStorage.getItem("email"); // Obtener el email del localStorage
+const loggedInEmail = localStorage.getItem("email");
 
 if (loggedInEmail) {
-    authLink.textContent = "Cerrar sesión"; // Cambiar texto a "Cerrar sesión"
-    authLink.href = "#"; // Cambiar el enlace a un valor vacío o un handler
+    authLink.textContent = "Cerrar sesión";
+    authLink.href = "#";
     authLink.addEventListener("click", () => {
-        localStorage.removeItem("email"); // Cerrar sesión eliminando el email del localStorage
-        location.reload(); // Recargar la página para reflejar el cambio
+        localStorage.removeItem("email");
+        location.reload();
     });
 } else {
-    authLink.textContent = "Iniciar sesión"; // Mantener texto como "Iniciar sesión"
-    authLink.href = "login.html"; // Mantener el enlace a la página de login
+    authLink.textContent = "Iniciar sesión";
+    authLink.href = "login.html";
 }
