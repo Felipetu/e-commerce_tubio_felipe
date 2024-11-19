@@ -20,6 +20,8 @@ const handlesubmitlogin = (ev) => {
 
     // Comparar con los valores predefinidos
     if (emailForm === user_login.email && passwordForm === user_login.password) {
+        // Guardar sesión activa y otros datos en localStorage
+        localStorage.setItem("sessionActive", "true"); // Guardar sesión activa
         localStorage.setItem("email", emailForm); // Guardar email en localStorage
         
         // Inicializar el carrito como un array vacío y convertirlo a string

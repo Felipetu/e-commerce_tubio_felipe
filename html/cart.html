@@ -11,10 +11,51 @@
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
    crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="../css/cart.css" />
+  <link rel="stylesheet" href="../css/cart.css"/>
  </head>
  <body id="cart">
-  <header></header>
+  <header>
+    <style>header{background-color: black;}</style>
+    <script src="../js/index.js"></script>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      
+          <div class="container-fluid" style="background-color: transparent;">
+      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+                <li class="nav-item" >
+                  <a class="nav-link active" aria-current="page" href="index.html" style="color: white;">Inicio 🏠</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link" href="./trending.html" style="color: white;">🔥Trending 📈</a>
+                </li>
+      
+                  <li class="nav-item">
+                    <a class="nav-link" href="./promos.html" style="color: white;"> 💯🔥 Promos 🤑 </a>
+                  </li>
+      
+                  <li class="nav-item">
+                    <a class="nav-link" href="./servicio.html" style="color: white;"> 🎧 Soporte Tecnico 🧑‍💻</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./cart.html">
+                      <img src="https://raw.githubusercontent.com/julioavantt/guayerd_login/main/cart.png" alt="Carrito" id="cart-icon" style="width: 24px; height: 24px;">
+                      <span id="cart-quantity" style="color: white; font-weight: bold; margin-left: 5px;">0</span>
+                    </a>
+                  </li>
+              </ul>
+      
+              <form class="d-flex" role="search" action="./resultados.html" method="get" id="search-form">      
+                <input type="search" name="search" id="search" placeholder="Buscar productos" style="background-color: rgba(255, 255, 255, 0.62);"> 
+              </form>
+      
+            </div>
+          </div>
+        </nav>
+  </header>
   <div class="container pt-4">
    <div class="row">
     <div class="col-xl-8">

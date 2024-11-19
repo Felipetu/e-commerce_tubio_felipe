@@ -1,5 +1,12 @@
 import data from "./data.js"
 
+function checkSession() {
+    const sessionActive = localStorage.getItem("sessionActive");
+    if (sessionActive !== "true") {
+        window.location.href = "login.html"; // Redirigir a la página de inicio de sesión si no está logueado
+    }
+}
+checkSession();
 
 const button = document.querySelector('.verproductos');
 const searchInput = document.getElementById('search-input');
@@ -86,36 +93,4 @@ if (loggedInEmail) {
 } else {
     authLink.textContent = "Iniciar sesión"; // Mantener texto como "Iniciar sesión"
     authLink.href = "login.html"; // Mantener el enlace a la página de login
-}
-
-// Inicializamos el carrito desde localStorage si ya existe, o un array vacío si no
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-// Función para añadir productos al carrito
-function addCart(product) {
-    // Verificar si el producto ya está en el carrito
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-    
-    if (existingProductIndex !== -1) {
-        // Si el producto ya está en el carrito, actualizamos su cantidad
-        cart[existingProductIndex].quantity += product.quantity;
-    } else {
-        // Si el producto no está en el carrito, lo agregamos
-        cart.push(product);
-    }
-
-    // Guardamos el carrito actualizado en localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Actualizar la cantidad total en localStorage
-    updateQuantityInLocalStorage();
-
-    // Llamamos a la función para actualizar el ícono del carrito en el navbar
-    updateCartQuantityDisplay();
-}
-
-// Función para calcular y guardar la cantidad total de productos en el carrito
-function updateQuantityInLocalStorage() {
-    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-    localStorage.setItem('quantity', totalQuantity);
 }
