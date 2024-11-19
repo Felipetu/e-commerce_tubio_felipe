@@ -13,7 +13,7 @@ const message = document.querySelector("#formLoginMessage");
 const handlesubmitlogin = (ev) => {
     message.innerText = ""; // Limpiar mensajes previos
     ev.preventDefault(); // Prevenir el envío del formulario
-
+    
     // Obtener valores de los campos
     let emailForm = ev.target.elements.email.value; // Email ingresado
     let passwordForm = ev.target.elements.password.value; // Contraseña ingresada
@@ -24,9 +24,8 @@ const handlesubmitlogin = (ev) => {
         localStorage.setItem("sessionActive", "true"); // Guardar sesión activa
         localStorage.setItem("email", emailForm); // Guardar email en localStorage
         
-        // Inicializar el carrito como un array vacío y convertirlo a string
-        const cart = [];
-        localStorage.setItem("cart", JSON.stringify(cart)); // Agregar el carrito al localStorage
+        // Inicializar el carrito como un array vacío
+        localStorage.setItem("cart", JSON.stringify([])); // Agregar el carrito al localStorage
         
         // Inicializar quantity como 0
         const quantity = 0;

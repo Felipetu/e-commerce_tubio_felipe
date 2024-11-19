@@ -1,5 +1,14 @@
 import data from './data.js';
 
+// Inicializar el valor de cart-quantity en la página
+document.addEventListener("DOMContentLoaded", () => {
+    const quantityElement = document.getElementById("cart-quantity");
+    
+    // Obtener el valor de cart-quantity del localStorage, o inicializarlo en 0 si no existe
+    const cartQuantity = localStorage.getItem("cart-quantity") || 0;
+    quantityElement.innerHTML = cartQuantity;
+  });
+
 // Simulación de estado de inicio de sesión
 const isLoggedIn = true; // Cambia esto a false para simular que el usuario no está logueado
 
@@ -45,8 +54,8 @@ if (product) {
                                       <button class="btn btn-success" type="button" onclick="incrementCounter()" style="width: 50px; font-size: 1.5rem;">+</button>
                                   </div>
                               </div>
-                              <button class="btn btn-primary mt-4" style="width: 60%; padding: 12px; font-size: 1.2rem;">
-                                  ${isLoggedIn ? "Comprar" : "Iniciar sesión para comprar"}
+                              <button class="btn btn-primary mt-4" onclick="sendtocart()" style="width: 60%; padding: 12px; font-size: 1.2rem;">
+                                  ${isLoggedIn ? "Agregar al carrito" : "Iniciar sesión para comprar"}
                               </button>` : ""}
                           </div>
                       </div>
@@ -57,14 +66,28 @@ if (product) {
     
     section.innerHTML = card;
   }
+// enviar el resultado al cart, para que se vea en la nav
+  window.sendtocart=function(){
+   // localStorage.setItem("cart-quantity",  0);
+
+    const cartvalue = Number(localStorage.getItem("cart-quantity"));
+    const items= Number(document.getElementById("product-counter").innerHTML) ;
+
+    localStorage.setItem("cart-quantity",  cartvalue + items);
+    document.getElementById("cart-quantity").innerHTML =  cartvalue + items;
+}
+
+
 
   // Función para incrementar el contador
   window.incrementCounter = function() {
     const counter = document.getElementById('product-counter');
     const currentQuantity = parseInt(counter.innerText);
     
+ 
     if (currentQuantity < product.stock) {
       counter.innerText = currentQuantity + 1;
+
     } else {
       alert("No puedes comprar más de lo que hay en stock.");
     }
@@ -77,6 +100,7 @@ if (product) {
     
     if (currentQuantity > 1) {
       counter.innerText = currentQuantity - 1;
+
     }
   }
 
@@ -84,7 +108,6 @@ if (product) {
 } else {
   console.log("Producto no encontrado.");
 }
-
 // Verificar si el usuario está logueado
 const authLink = document.getElementById('auth-link');
 const loggedInEmail = localStorage.getItem("email");
@@ -100,3 +123,4 @@ if (loggedInEmail) {
     authLink.textContent = "Iniciar sesión";
     authLink.href = "login.html";
 }
+  

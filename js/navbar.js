@@ -1,3 +1,5 @@
+
+
 // Inicializa quantity si no existe en localStorage
 if (!localStorage.getItem('quantity')) {
     localStorage.setItem('quantity', 0);
