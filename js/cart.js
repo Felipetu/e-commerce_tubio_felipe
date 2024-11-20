@@ -132,3 +132,14 @@ function removeFromCart(productId) {
   updateQuantityInLocalStorage()
   location.reload();
 }
+
+function emptyCart() {
+  // Elimina el carrito del localStorage
+  localStorage.removeItem("cart");
+  
+  // También elimina la quantity si lo necesitas
+  localStorage.removeItem("quantity");
+  
+  // Opcionalmente, puedes refrescar la página para reflejar los cambios
+  location.reload();
+}
