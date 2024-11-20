@@ -65,10 +65,15 @@ function renderCartItems() {
                   <h5>$${total}</h5>
                 </div>
               </div>
+              <div class="col-md-4">
+              <button onclick="removeFromCart(${item.product.id})">
+                 <span class="material-symbols-outlined"> delete </span>
+              </button>     
+              </div>
             </div>
           </div>
         </div>
-      `;
+        `;
     })
     .join(""); // Combina todas las tarjetas en un solo string
 
@@ -77,4 +82,53 @@ function renderCartItems() {
     // Calcular el total de la orden
     const orderTotal = calculateOrderTotal(cart);
     document.querySelector(".table .fw-bold").innerText = `$${orderTotal}`;
+}
+
+// Función para actualizar el valor de quantity en localStorage
+function updateQuantityInLocalStorage() {
+  // Obtener el valor actual de quantity desde localStorage (si no existe, es 0)
+  let currentQuantity = parseInt(localStorage.getItem("quantity") || "0");
+
+  // Restar 1 al valor actual de quantity
+  let newQuantity = currentQuantity - 1;
+
+  // Asegurarse de que el valor no sea negativo
+  if (newQuantity < 0) {
+    newQuantity = 0;
+  }
+
+  // Guardar el nuevo valor de quantity en localStorage
+  localStorage.setItem("quantity", newQuantity);
+}
+
+function removeFromCart(productId) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Encuentra el producto en el carrito
+  const productIndex = cart.findIndex(item => item.product.id === productId);
+
+  if (productIndex !== -1) {
+    if (cart[productIndex].quantity > 1) {
+      // Reduce la cantidad en 1 si es mayor que 1
+      cart[productIndex].quantity -= 1;
+    } else {
+      // Si la cantidad es 1, elimina el producto del carrito
+      cart.splice(productIndex, 1);
+    }
+  }
+
+  // Actualiza el carrito en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Recalcula el total de la orden después de eliminar o reducir la cantidad
+  const orderTotal = calculateOrderTotal(cart);
+  
+  // Actualiza el total en el DOM
+  document.querySelector(".table .fw-bold").innerText = `$${orderTotal}`;
+
+
+  // Renderiza nuevamente los productos en el carrito
+  renderCartItems();
+  updateQuantityInLocalStorage()
+  location.reload();
 }
