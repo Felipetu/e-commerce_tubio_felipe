@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCartItems();
 });
 
+//Suma los precios de todos los productos del carrito. 
+//Se multiplica el precio por la cantidad de cada artículo antes de sumar.
+function calculateOrderTotal(cart) {
+  return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+}
+
 function checkSessionForCart() {
   // Verifica si el usuario tiene sesión activa
   const sessionActive = localStorage.getItem("sessionActive") === "true";
@@ -67,4 +73,8 @@ function renderCartItems() {
     .join(""); // Combina todas las tarjetas en un solo string
 
   cartContainer.innerHTML = cartItemsHTML;
+
+    // Calcular el total de la orden
+    const orderTotal = calculateOrderTotal(cart);
+    document.querySelector(".table .fw-bold").innerText = `$${orderTotal}`;
 }

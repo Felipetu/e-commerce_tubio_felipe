@@ -35,7 +35,7 @@ const data = [{
   title: "Armadura de las cruzadas 🫨🗿",
   detail: "¡Consigue tu armadura medieval de las cruzadas! Confeccionada con materiales resistentes y detalles auténticos, ofrece una protección inigualable en el campo de batalla. Perfecta para recreaciones históricas, coleccionistas o entusiastas de la época. Su diseño imponente combina la estética de los caballeros cruzados con comodidad moderna, asegurando resistencia y movilidad. ¡Equípate como un verdadero guerrero!",
   image: "https://i.pinimg.com/236x/91/80/0f/91800f64892253357706471bd2a19e2a.jpg",
-  price: 50_000,
+  price: 5000,
   stock: 17,
   category: "armamento"
 }, {
@@ -51,7 +51,7 @@ const data = [{
   title: "Camion electrico",
   detail: "¡Transforma tu transporte con nuestro camión eléctrico! Eficiente, silencioso y con cero emisiones, es ideal para empresas que buscan modernizar su flota y contribuir al medio ambiente. Disfruta de costos operativos reducidos y un rendimiento impresionante. ¡Únete a la revolución sostenible y haz tu parte por un futuro más limpio!",
   image: "https://www.clarin.com/2017/12/12/SJJpydTbf_720x0.jpg",
-  price: 8_000_000,
+  price: 80_000,
   stock: 100,
   category: "vehiculos"
 }, {
@@ -74,4 +74,3 @@ const data = [{
 ]
 
 export default data;
-
