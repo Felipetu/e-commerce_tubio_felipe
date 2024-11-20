@@ -5,6 +5,13 @@ if (!localStorage.getItem('quantity')) {
     localStorage.setItem('quantity', 0);
   }
   
+// Función para actualizar el número en el ícono del carrito
+function updateCartQuantityDisplay(quantity = null) {
+  const cartQuantityElement = document.getElementById('cart-quantity');
+  const quantityValue = quantity !== null ? quantity : localStorage.getItem('quantity') || 0;
+  cartQuantityElement.textContent = quantityValue;
+}
+
   // Función para actualizar la cantidad mostrada en el ícono del carrito
   function updateCartQuantityDisplay() {
     const cartQuantityElement = document.getElementById('cart-quantity');
@@ -42,12 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartQuantityElement.textContent = quantity;
   });  
 
-// Función para actualizar el número en el ícono del carrito
-function updateCartQuantityDisplay(quantity = null) {
-    const cartQuantityElement = document.getElementById('cart-quantity');
-    const quantityValue = quantity !== null ? quantity : localStorage.getItem('quantity') || 0;
-    cartQuantityElement.textContent = quantityValue;
-}
+
 
 // Al cargar la página, actualizamos el ícono del carrito
 document.addEventListener('DOMContentLoaded', () => {

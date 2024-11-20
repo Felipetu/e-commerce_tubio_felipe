@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const quantityElement = document.getElementById("cart-quantity");
     
     // Obtener el valor de cart-quantity del localStorage, o inicializarlo en 0 si no existe
-    const cartQuantity = localStorage.getItem("cart-quantity") || 0;
+    const cartQuantity = Number(localStorage.getItem("quantity")) || 0;
     quantityElement.innerHTML = cartQuantity;
   });
 
@@ -54,7 +54,7 @@ if (product) {
                                       <button class="btn btn-success" type="button" onclick="incrementCounter()" style="width: 50px; font-size: 1.5rem;">+</button>
                                   </div>
                               </div>
-                              <button class="btn btn-primary mt-4" onclick="sendtocart()" style="width: 60%; padding: 12px; font-size: 1.2rem;">
+                              <button class="btn btn-primary mt-4" onclick="additemstocart()" style="width: 60%; padding: 12px; font-size: 1.2rem;">
                                   ${isLoggedIn ? "Agregar al carrito" : "Iniciar sesión para comprar"}
                               </button>` : ""}
                           </div>
@@ -70,14 +70,57 @@ if (product) {
   window.sendtocart=function(){
    // localStorage.setItem("cart-quantity",  0);
 
-    const cartvalue = Number(localStorage.getItem("cart-quantity"));
+    const cartvalue = Number(localStorage.getItem("quantity"));
     const items= Number(document.getElementById("product-counter").innerHTML) ;
 
     localStorage.setItem("cart-quantity",  cartvalue + items);
     document.getElementById("cart-quantity").innerHTML =  cartvalue + items;
 }
 
+window.additemstocart=function(){
 
+    
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let quantity = Number(document.getElementById("product-counter").innerHTML);
+    
+        const idProduct = Number(window.location.search.split("=")[1]);
+        const product = data.find(item => item.id === idProduct);
+        const existeIdEnCart = cart.some(item => item.product.id === idProduct);
+
+        const counter = Number(document.getElementById("cart-quantity").innerHTML);
+
+         if (existeIdEnCart) {
+            cart = cart.map(item => {
+                if (item.product.id === idProduct) {
+                    return {
+                        ...item,
+                        quantity: Number(item.quantity) + Number(counter.value)
+                    };
+                } else {
+                    return item;
+                }
+            });
+        } else {
+            cart.push({
+                product: product,
+                quantity: Number(quantity)
+            });
+        }
+    
+        localStorage.setItem("cart", JSON.stringify(cart));
+    
+        //quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
+        localStorage.setItem("quantity", quantity + counter);
+    
+        // const quantityTag = document.querySelector("#quantity");
+        // quantityTag.innerText = quantity;
+        document.getElementById("cart-quantity").innerHTML = quantity + counter;
+        
+        // Toastify({
+        //     text: "Agregaste producto/s al carrito de compras.",
+        //     style: { background: "#DB5079" },
+        // }).showToast();
+}
 
   // Función para incrementar el contador
   window.incrementCounter = function() {
