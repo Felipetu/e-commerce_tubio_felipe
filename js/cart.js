@@ -133,13 +133,35 @@ function removeFromCart(productId) {
   location.reload();
 }
 
+// // Función para mostrar un toast
+// function showToast(message) {
+//   Toastify({
+//     text: message,
+//     duration: 3000, // Duración en milisegundos
+//     gravity: "top", // Posición: top o bottom
+//     position: "right", // Posición: left, center o right
+//     backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Estilo de fondo
+//     stopOnFocus: true, // Detener el toast cuando se pasa el mouse sobre él
+//   }).showToast();
+// }
+
+// Función para mostrar un SweetAlert
+function showAlertgreen(message, type = 'success') {
+  Swal.fire({
+    title: message,       // Título del alerta
+    icon: type,           // Tipo de alerta: 'success', 'error', 'warning', 'info'
+    confirmButtonText : 'Okay',  // Botón de confirmación
+    timer: 3000,          // Duración automática de la alerta en milisegundos
+    timerProgressBar: true // Barra de progreso
+  });
+}
+
 function emptyCart() {
   // Elimina el carrito del localStorage
   localStorage.removeItem("cart");
   
   // También elimina la quantity si lo necesitas
   localStorage.removeItem("quantity");
-  
-  // Opcionalmente, puedes refrescar la página para reflejar los cambios
-  location.reload();
+
+  showAlert('¡El carrito ha sido vaciado! refresque la pagina para continuar', 'success');  
 }

@@ -17,6 +17,11 @@
   <script src="../js/navbar.js"></script>
   <script src="../js/cart.js"></script>
   <script src="../js/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=restart_alt" />
  </head>
  <body id="cart">
   <header>
@@ -101,12 +106,17 @@
       </div>
      </div>
      <div class="row my-4">
-      <div class="col-sm-6">
+      <div class="col-sm-5">
        <button class="btn" id="clean" onclick="emptyCart()" style="background-color: brown; color: aliceblue;">Vaciar</button>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-2">
+        <button class="btn" id="clean" onclick="location.reload()" style="background-color: rgb(0, 187, 255);">
+          <span class="material-symbols-outlined"> restart_alt </span>
+        </button>
+       </div>
+      <div class="col-sm-5">
        <div class="text-sm-end mt-2 mt-sm-0">
-        <button id="btn-checkout" class="btn btn-success" onclick="alert('Esta funcion aun se esta implementando. Disculpe las molestias')">Finalizar Compra</button>
+        <button id="btn-checkout" class="btn btn-success" onclick="showAlert('Esta funcion aun se esta implementando. Disculpe las molestias', 'error');">Finalizar Compra</button>
        </div>
       </div>
      </div>
@@ -136,5 +146,17 @@
     </div>
    </div>
   </div>
+  <script>
+// Función para mostrar un SweetAlert con tipo error
+function showAlert(message, type = 'error') {
+  Swal.fire({
+    title: message,       // Título del alerta
+    icon: type,           // Tipo de alerta: 'success', 'error', 'warning', 'info'
+    confirmButtonText: 'Aceptar',  // Botón de confirmación
+    timer: 5000,          // Duración automática de la alerta en milisegundos
+    timerProgressBar: true // Barra de progreso
+  });
+}
+  </script>
  </body>
 </html>
