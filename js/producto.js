@@ -116,10 +116,12 @@ window.additemstocart=function(){
         // quantityTag.innerText = quantity;
         document.getElementById("cart-quantity").innerHTML = quantity + counter;
         
-        // Toastify({
-        //     text: "Agregaste producto/s al carrito de compras.",
-        //     style: { background: "#DB5079" },
-        // }).showToast();
+       Toastify({
+        text: "Agregaste producto/s al carrito de compras.",
+        backgroundColor: "green",
+        }).showToast();
+
+
 }
 
   // Función para incrementar el contador

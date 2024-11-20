@@ -67,7 +67,7 @@ function renderCartItems() {
               </div>
               <div class="col-md-4">
               <button onclick="removeFromCart(${item.product.id})">
-                 <span class="material-symbols-outlined"> delete </span>
+                 <i class="bi bi-trash"></i>
               </button>     
               </div>
             </div>
