@@ -1,4 +1,4 @@
-import data from "./data.js"
+import data from "./data.js";
 
 function checkSession() {
     const sessionActive = localStorage.getItem("sessionActive");
@@ -10,54 +10,64 @@ checkSession();
 
 const button = document.querySelector('.verproductos');
 const searchInput = document.getElementById('search-input');
-
 const section = document.getElementById('123');
 const cardContainer = document.getElementById('card-container');
+const spinner = document.getElementById("spinner");
+
+// Función para simular la carga de datos con una promesa
+function loadCards() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(data); // Simula que la "carga" devuelve los datos
+        }, 3000); // Simula un tiempo de espera de 3 segundos
+    });
+}
 
 button.addEventListener('click', () => {
     section.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
-  });
+});
 
+function generarTarjetas(products) {
+    const cards = products.map((product) => `
+        <div class="col-md-3">
+            <div class="card" style="background-color: black; width: 25rem;">
+                <img src="${product.image}" class="card-img-top" height="250px">
+                <div class="card-body">
+                    <h2 class="card-title" style="background-color: red">${product.title}</h2>
+                    <h5 class="card-text" style="color: lightblue;">${product.detail}</h5>
+                    <div style="color: yellow">
+                        <h5>Precio: $ ${product.price}</h5>
+                    </div>
+                    <div style="color: lightblue">
+                        <h6>Stock restante: ${product.stock}</h6>
+                        <h6> Categoria: ${product.category} </h6>      
+                    </div>
+                    <div class="text-center">
+                        <a href="./producto.html?prod=${product.id}" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>`).join('');
 
-  function tarjetas() {
-    const section = document.querySelector("section");
-  
-    // Generamos las tarjetas solo una vez por cada producto
-    let cards = data.map((product) => `
-      <div class="col-md-3">
-          <div class="card" style="background-color: black; width: 25rem;">
-              <img src="${product.image}" class="card-img-top" height="250px">
-              <div class="card-body">
-                  <h2 class="card-title" style="background-color: red">${product.title}</h2>
-                  <h5 class="card-text" style="color: lightblue;">${product.detail}</h5>
-                  <div style="color: yellow">
-                      <h5>Precio: $ ${product.price}</h5>
-                  </div>
-                  <div style="color: lightblue">
-                      <h6>Stock restante: ${product.stock}</h6>
-                      <h6> Categoria: ${product.category} </h6>      
-                  </div>
-                  <div class="text-center">
-                      <a href="./producto.html?prod=${product.id}" class="btn btn-primary">Ver más</a>
-                  </div>
-              </div>
-          </div>
-      </div>`).join('');
-  
-    // Inserta las tarjetas en la sección
-    section.innerHTML = `<div class="row">${cards}</div>`;
-  }
-  
-  // Llama a la función para generar las tarjetas
-  tarjetas();
+    cardContainer.innerHTML = `<div class="row">${cards}</div>`;
+}
+
+async function init() {
+    try {
+        const products = await loadCards(); // Simula la carga de productos
+        spinner.style.display = "none"; // Esconde el spinner
+        generarTarjetas(products); // Renderiza las tarjetas
+    } catch (error) {
+        console.error("Error cargando las tarjetas:", error);
+    }
+}
+init();
 
 function redirectToSearch() {
-    const searchInput = document.getElementById('searchInput').value.trim();
-    
-    // Verifica si hay texto ingresado antes de redirigir
-    if (!searchInput =='') {
+    const searchInputValue = searchInput.value.trim();
+    if (searchInputValue) {
         // Redirige a la URL deseada con el parámetro `search`
-        window.location.href = `../html/resultados.html?search=${encodeURIComponent(searchInput)}`;
+        window.location.href = `../html/resultados.html?search=${encodeURIComponent(searchInputValue)}`;
     } else {
         alert("Por favor, ingresa un término de búsqueda.");
     }
@@ -66,17 +76,11 @@ function redirectToSearch() {
 const accordions = document.querySelectorAll(".accordion");
 
 accordions.forEach(accordion => {
-  accordion.addEventListener("click", function() {
-    this.classList.toggle("active");
-
-    const panel = this.nextElementSibling;
-
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
+    accordion.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = (panel.style.display === "block") ? "none" : "block";
+    });
 });
 
 // Verificar si el usuario está logueado
