@@ -133,18 +133,6 @@ function removeFromCart(productId) {
   location.reload();
 }
 
-// // Función para mostrar un toast
-// function showToast(message) {
-//   Toastify({
-//     text: message,
-//     duration: 3000, // Duración en milisegundos
-//     gravity: "top", // Posición: top o bottom
-//     position: "right", // Posición: left, center o right
-//     backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Estilo de fondo
-//     stopOnFocus: true, // Detener el toast cuando se pasa el mouse sobre él
-//   }).showToast();
-// }
-
 // Función para mostrar un SweetAlert
 function showAlertgreen(message, type = 'success') {
   Swal.fire({
@@ -164,4 +152,42 @@ function emptyCart() {
   localStorage.removeItem("quantity");
 
   showAlert('¡El carrito ha sido vaciado! refresque la pagina para continuar', 'success');  
+}
+
+function checkout() {
+  const recurso = {
+    user: localStorage.getItem("email"),
+    items: JSON.parse(localStorage.getItem("cart")),
+  };
+
+  fetch("https://673d09dd4db5a341d833d038.mockapi.io/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", // Aseguramos que el contenido se envíe como JSON
+    },
+    body: JSON.stringify(recurso),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      Swal.fire({
+        icon: "success", // Ícono de éxito
+        text: `Gracias ${recurso.user}. Hemos registrado tu orden número #${data.id}`,
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#06f",
+      });
+
+      // Elimina el carrito del localStorage
+      localStorage.removeItem("cart");
+
+      // También elimina la cantidad si es necesario
+      localStorage.removeItem("quantity");
+    })
+    .catch(() =>
+      Swal.fire({
+        icon: "error", // Ícono de error
+        text: "Ups, hubo un problema. Por favor, inténtalo más tarde.",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#06f",
+      })
+    );
 }
